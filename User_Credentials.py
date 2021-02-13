@@ -18,3 +18,12 @@ class User:
         Function for saving new users
         '''
         User.users.append(self)
+
+class Credentials:
+    '''
+    Class for user credentials
+    '''
+    credentials=[]
+    user_credentilas = []
+
+    
