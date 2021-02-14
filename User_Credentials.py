@@ -37,4 +37,16 @@ class Credentials:
                     current_user = username
         return current_user
 
-    def __init__(self,)
+    def __init__(self,name,site_name,password):
+        '''
+        Method for user objects
+        '''
+        self.name = name
+        self.site_name = site_name
+        self.password = password
+
+    def save_credentials(self):
+        '''
+        Method for saving new user credentials
+        '''
+        Credential.credentials.append(self)
