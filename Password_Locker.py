@@ -29,4 +29,12 @@ import pyperclip
         gen_pass = Credential.generate_password()
         return gen_pass
 
+    def create_credential(name,site_name,password):
+        '''
+        Function for new credentials
+        '''
+        new_credential = Credential(name,site_name,password)
+        return new_credential
+
+    
     

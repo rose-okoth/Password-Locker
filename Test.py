@@ -22,5 +22,20 @@ class TestCredentials(unittest.TestCase):
     '''
     Test class for the credentials class
     '''
+    def test_check_user(self):
+        '''
+        Function to verify whether the function check_user works
+        '''
+        self.new_user = User('Rose','rudim3nt@l')
+        self.new_user.save_user()
+        user2 = User('Rio','3liz@b3th')
+        user2.save_user()
 
+        for user in User.users:
+            if user.username == user2.username and user.password == user2.password:
+                current_user = user.username
+        return current_user
 
+        self.assertEqual(current_user,Credential.check_user(user2.password,user2.username))
+
+    

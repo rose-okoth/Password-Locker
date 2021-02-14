@@ -23,7 +23,7 @@ class Credentials:
     '''
     Class for user credentials
     '''
-    credentials=[]
+    credentials = []
     user_credentials = []
 
     @classmethod
@@ -45,8 +45,27 @@ class Credentials:
         self.site_name = site_name
         self.password = password
 
+    def generate_password(size=10, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+        '''
+        Method for new passwords
+        '''
+        gen_pass=''.join(random.choice(char) for _ in range(size))
+        return gen_pass
+
     def save_credentials(self):
         '''
         Method for saving new user credentials
         '''
         Credential.credentials.append(self)
+
+    @classmethod
+    def display_credentials(cls,name):
+        '''
+        Method for list of credentials
+        '''
+        user_credentials = []
+        for credential in cls.credentials:
+            user_credentials.append(credential)
+        return user_credentials
+
+    
