@@ -1,4 +1,5 @@
-from users import User
+#! /usr/bin/env python3
+from users import User, Credentials
 import pyperclip
 
 def new_user(username,password):
@@ -13,5 +14,12 @@ def save_user(user):
     Function for new user account
     '''
     User.save_user(user)
+
+def verify_user(username,password)
+    '''
+    Function for user verification
+    '''
+    verifying_user = Credentials.check_user(username,password)
+    return verifying_user
 
     

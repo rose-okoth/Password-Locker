@@ -1,6 +1,6 @@
 import unittest 
 import pyperclip
-from User_Credentials import User
+from User_Credentials import User, Credentials
 
 class TestUser(unittest.TestCase):
 
@@ -17,5 +17,10 @@ class TestUser(unittest.TestCase):
     def test_save(self):
         self.new_user.save_user()
         self.assertEqual(len(User.users),1)
+    
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class for the credentials class
+    '''
     
 
