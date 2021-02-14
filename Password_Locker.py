@@ -36,5 +36,23 @@ import pyperclip
         new_credential = Credential(name,site_name,password)
         return new_credential
 
+    def save_credential(credential):
+        '''
+        Function to save a new credential
+        '''
+        Credential.save_credentials(credential)
+
+    def display_credentials(name):
+        '''
+        Function for the credentials saved by the user
+        '''
+        return Credential.display_credentials(name)
+
+    def copy_credential(site_name):
+        '''
+        Function for copying credentials to the clipboard
+        '''
+        return Credential.copy_credential(site_name)
+
     
     
