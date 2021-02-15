@@ -17,8 +17,12 @@ Rose Okoth.
 1. Switch into the directory:
     `cd Password-Locker`
 ​
-1. Run the launch command:
-    `run`
+1. To run the application:
+    `$ chmod +x main.py`
+    `$ ./main.py`
+
+1. To run the tests:
+    ` python3 Test.py`
 ​
 # BDD
 * Users should be able to:
@@ -30,7 +34,7 @@ Rose Okoth.
     - delete a credentials account that they no longer need in the application.
 ​
 # Technologies Used
-* Python.
+* Python3
 ​
 # Contact Information
 
