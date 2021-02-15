@@ -1,4 +1,7 @@
 # Users and User Credentials
+import string
+import pyperclip
+import random
 
 class User:
     '''
@@ -45,7 +48,7 @@ class Credentials:
         self.site_name = site_name
         self.password = password
 
-    def generate_password(size=10, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+    def generate_password(size = 10, char = string.ascii_uppercase + string.ascii_lowercase + string.digits):
         '''
         Method for new passwords
         '''
@@ -56,7 +59,7 @@ class Credentials:
         '''
         Method for saving new user credentials
         '''
-        Credential.credentials.append(self)
+        Credentials.credentials.append(self)
 
     @classmethod
     def display_credentials(cls,name):
@@ -82,5 +85,5 @@ class Credentials:
         '''
         Method for copying credential info
         '''
-        find_credential = Credential.find_by_site_name(site_name)
+        find_credential = Credentials.find_by_site_name(site_name)
         return pyperclip.copy(find_credential.password)

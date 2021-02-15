@@ -57,9 +57,9 @@ class TestCredentials(unittest.TestCase):
         Test for credential info
         '''
         self.new_credential.save_credentials()
-		instagram = Credential('Rose','Instagram','inst@')
-		instagram.save_credentials()
-		self.assertEqual(len(Credential.credentials),2)
+        instagram = Credential('Rose','Instagram','inst@')
+        instagram.save_credentials()
+    self.assertEqual(len(Credential.credentials),2)
 
     def tearDown(self):
         '''
@@ -74,7 +74,7 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_credential.save_credentials()
         instagram = Credential('Rose','Instagram','inst@')
-		instagram.save_credentials()
+        instagram.save_credentials()
         gmail = Credential('Rose','Gmail','gm@il')
         gmail.save_credentials()
         self.assertEqual(len(Credential.display_credentials(instagram.name)),2)
@@ -85,7 +85,7 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_credential.save_credentials()
         instagram = Credential('Rose','Instagram','inst@')
-		instagram.save_credentials()
+        instagram.save_credentials()
         credential_exists = Credential.find_by_site_name('Instagram')
         self.assertEqual(credential_exists,instagram)
 

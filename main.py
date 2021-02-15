@@ -1,6 +1,62 @@
 #! /usr/bin/env python3
-from users import User, Credentials
+from User_Credentials import User, Credentials
 import pyperclip
+
+
+def new_user(username,password):
+    '''
+    Function for creating a new user
+    '''
+    new_user = User(username,password)
+    return new_user
+
+def save_user(user):
+    '''
+    Function for new user account
+    '''
+    User.save_user(user)
+
+def verify_user(username,password):
+    '''
+    Function for user verification
+    '''
+    verifying_user = Credentials.check_user(username,password)
+    return verifying_user
+
+def generate_password():
+    '''
+    Function for automatic passwords
+    '''
+    gen_pass = Credentials.generate_password()
+    return gen_pass
+
+def create_credential(name,site_name,password):
+    '''
+    Function for new credentials
+    '''
+    new_credential = Credentials(name,site_name,password)
+    return new_credential
+
+def save_credential(credential):
+    '''
+    Function to save a new credential
+    '''
+    Credentials.save_credentials(credential)
+
+def display_credentials(name):
+    '''
+    Function for the credentials saved by the user
+    '''
+    return Credentials.display_credentials(name)
+
+def copy_credential(site_name):
+    '''
+    Function for copying credentials to the clipboard
+    '''
+    return Credentials.copy_credential(site_name)
+
+
+
 
 def main():
 	print(' ')
@@ -19,9 +75,9 @@ def main():
 			print('To create a new account:')
 			username = input('Enter your username - ').strip()
 			password = input('Enter your password - ').strip()
-			save_user(create_user(username,password))
+			save_user(new_user(username,password))
 			print(" ")
-			print(f'New Account Created for: {first_name} {last_name} using password: {password}')
+			print(f'New Account Created for: {username} using password: {password}')
 
 		elif short_code == 'li':
 			print("-"*20)
@@ -50,6 +106,7 @@ def main():
 					elif short_code == 'cc':
 						print(' ')
 						print('Enter your credential details: ')
+						name = input('Enter the name- ').strip()
 						site_name = input('Enter the site\'s name- ').strip()
 						# account_name = input('Enter your account\'s name - ').strip()
 
@@ -82,7 +139,7 @@ def main():
 					elif short_code == 'dc':
 						print(' ')
 
-						if display_credentials(user_name):
+						if display_credentials(name):
 							print('Here is a list of all your credentials')
 							print(' ')
 							for credential in display_credentials(name):
