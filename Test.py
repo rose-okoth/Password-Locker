@@ -3,7 +3,6 @@ import pyperclip
 from User_Credentials import User,Credentials
 
 class TestUser(unittest.TestCase):
-
     '''
     Test for user class
     '''
@@ -36,7 +35,7 @@ class TestCredentials(unittest.TestCase):
                 current_user = user.username
         return current_user
 
-        self.assertEqual(current_user,Credential.check_user(user2.password,user2.username))
+        self.assertEqual(current_user,Credentials.check_user(user2.password,user2.username))
     
     def setUp(self):
         '''
@@ -57,36 +56,36 @@ class TestCredentials(unittest.TestCase):
         Test for credential info
         '''
         self.new_credential.save_credentials()
-        instagram = Credential('Rose','Instagram','inst@')
+        instagram = Credentials('Rose','Instagram','inst@')
         instagram.save_credentials()
-    self.assertEqual(len(Credential.credentials),2)
+    self.assertEqual(len(Credentials.credentials),2)
 
     def tearDown(self):
         '''
         Function for clearing creds list after every test
         '''
-        Credential.credentials = []
+        Credentials.credentials = []
         User.users = []
 
     def test_display_credentials(self):
         '''
         Test to check if the display_credentials method works
         '''
-        self.new_credential.save_credentials()
-        instagram = Credential('Rose','Instagram','inst@')
+        self.new_credentials.save_credentials()
+        instagram = Credentials('Rose','Instagram','inst@')
         instagram.save_credentials()
-        gmail = Credential('Rose','Gmail','gm@il')
+        gmail = Credentials('Rose','Gmail','gm@il')
         gmail.save_credentials()
-        self.assertEqual(len(Credential.display_credentials(instagram.name)),2)
+        self.assertEqual(len(Credentials.display_credentials(instagram.name)),2)
 
     def test_find_by_site_name(self):
         '''
         Test to check if the find_by_site_name method works
         '''
         self.new_credential.save_credentials()
-        instagram = Credential('Rose','Instagram','inst@')
+        instagram = Credentials('Rose','Instagram','inst@')
         instagram.save_credentials()
-        credential_exists = Credential.find_by_site_name('Instagram')
+        credential_exists = Credentials.find_by_site_name('Instagram')
         self.assertEqual(credential_exists,instagram)
 
     def test_copy_credential(self):
@@ -94,13 +93,13 @@ class TestCredentials(unittest.TestCase):
         Test to check if the copy a credential method copies the correct credential
         '''
         self.new_credential.save_credentials()
-		instagram = Credential('Rose','Instagram','inst@')
+		instagram = Credentials('Rose','Instagram','inst@')
 		instagram.save_credentials()
 		find_credential = None
-		for credential in Credential.user_credentials:
+		for credential in Credentials.user_credentials:
 				find_credential = Credential.find_by_site_name(credential.site_name)
 				return pyperclip.copy(find_credential.password)
-		Credential.copy_credential(self.new_credential.site_name)
+		Credentials.copy_credential(self.new_credential.site_name)
 		self.assertEqual('inst@',pyperclip.paste())
 		print(pyperclip.paste())
 
