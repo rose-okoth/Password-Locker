@@ -108,7 +108,6 @@ def main():
 						print('Enter your credential details: ')
 						name = input('Enter the name- ').strip()
 						site_name = input('Enter the site\'s name- ').strip()
-						# account_name = input('Enter your account\'s name - ').strip()
 
 						while True:
 							print(' ')
@@ -130,7 +129,7 @@ def main():
 								break
 
 							else:
-								print('Oops! Wrong option entered. Try again.')
+								print('Wrong option entered. Try again.')
 						save_credential(create_credential(name,site_name,password))
 						print(' ')
 						print(f'Credential Created: Site Name: {site_name} - Password: {password}')
@@ -140,7 +139,7 @@ def main():
 						print(' ')
 
 						if display_credentials(name):
-							print('Here is a list of all your credentials')
+							print('Here is a list of your credentials')
 							print(' ')
 							for credential in display_credentials(name):
 								print(f'Site Name: {credential.site_name} - Password: {credential.password}')
@@ -148,7 +147,7 @@ def main():
 
 						else:
 							print(' ')
-							print("You don't seem to have any credentials saved yet")
+							print("No credentials saved yet")
 							print(' ')
 
 					elif short_code == 'copy':
@@ -158,16 +157,16 @@ def main():
 						print('')
 
 					else:
-						print('Oops! Wrong option entered. Try again.')
+						print('Wrong option entered. Try again.')
 
 			else: 
 				print(' ')
-				print('Oops! Wrong details entered. Try again or Create an Account.')		
+				print('Wrong details entered. Try again or Create an Account.')		
 		
 		else:
 			print("-"*20)
 			print(' ')
-			print('Oops! Wrong option entered. Try again.')
+			print('Wrong option entered. Try again.')
 				
 if __name__ == '__main__':
 	main()
